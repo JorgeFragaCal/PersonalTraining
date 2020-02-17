@@ -15,4 +15,14 @@ export const Button = styled.button`
     css`
       margin-right: 1rem;
     `};
+  ${props =>
+    props.ml &&
+    css`
+      margin-left: 1rem;
+    `};
+  ${props =>
+    props.orange &&
+    css`
+      background-color: ${props => props.theme.colors.primary};
+    `};
 `;

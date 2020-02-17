@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import img from "../img/img1.jpg";
 import img2 from "../img/img2.jpg";
 import img3 from "../img/img3.jpg";
 import img4 from "../img/img4.jpg";
+import img5 from "../img/img5.jpg";
 import { Button } from "../components/Button";
-import { About01 } from "../components/about01";
-import { About02 } from "../components/about02";
-import { About03 } from "../components/about03";
-import { About04 } from "../components/about04";
+import { About } from "../components/About";
+import { ContactForm } from "../components/ContactForm";
 
 export const Main = styled.main`
   background-color: ${props => props.theme.colors.dark};
@@ -30,10 +29,12 @@ export const Section = styled.section`
     ${props =>
       props.contact &&
       css`
-        background: url(${img4});
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url(${img4});
         background-size: cover;
-        display: block;
-        padding-top: 2rem;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-content: center;
       `}
   ${props =>
     props.medium &&
@@ -72,7 +73,8 @@ export const Container = styled.section`
       props.expertise &&
       css`
         height: 60vh;
-        background: url(${img3});
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url(${img3});
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -99,7 +101,10 @@ export const Container = styled.section`
     css`
       display: grid;
       grid-template-columns: auto auto auto;
+      max-width: 1000px;
+      margin-bottom: 5rem;
     `};
+  
   ${props =>
     props.col_4 &&
     css`
@@ -112,12 +117,12 @@ export const Container = styled.section`
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         max-width: inherit;
-        max-width: ${props => props.theme.breackpoints.xl};
       `};
   ${props =>
     props.row_4 &&
     css`
       position: fixed;
+      top: 40%;
       left: 50px;
       width: 50px;
     `};
@@ -126,11 +131,11 @@ export const Container = styled.section`
     css`
       grid-column: 3/2;
     `};
-    ${props =>
-      props.hidden &&
-      css`
-        display: none;
-      `};
+  ${props =>
+    props.hidden &&
+    css`
+      display: none;
+    `};
 `;
 
 export const Title = styled.h1`
@@ -206,7 +211,7 @@ export const BottonScroll = styled.div`
       border-bottom: solid 5px ${props => props.theme.colors.medium};
     `};
 `;
-export const Scroll = styled.div`
+export const Scroll = styled.a`
   border-right: solid 3px ${props => props.theme.colors.primary};
   height: 50px;
   font-size: ${props => props.theme.fonts.size_xs};
@@ -219,6 +224,11 @@ export const Scroll = styled.div`
     props.medium &&
     css`
       border-right: solid 3px ${props => props.theme.colors.medium};
+    `};
+  ${props =>
+    props.hidden &&
+    css`
+      color: transparent;
     `};
 `;
 export const Graphics = styled.div`
@@ -243,25 +253,91 @@ export const Icon = styled.svg`
     fill: ${props => props.theme.colors.light};
   }
 `;
-export const Image = styled.div`
-  max-width: 200px;
-  height: 200px;
-  background-color: ${props => props.theme.colors.medium};
-  opacity: 0.3;
-
+export const Image = styled.a`
+  height: 300px;
+  width: 300px;
+  background: url(${img5});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.colors.light};
+  text-decoration: none;
+  filter: brightness(0.5);
+  &::after {
+    font-family: "Font Awesome 5 Brands";
+    content: "\f16d";
+  }
+  &:hover::after {
+    content: "";
+  }
   &:hover {
-    opacity: 1;
+    filter: brightness(1);
   }
 `;
 export function Home() {
+  //let scroll1;
+  const [scroll1, setScroll1] = useState(false);
+  const [scroll2, setScroll2] = useState(true);
+  const [scroll3, setScroll3] = useState(true);
+  const [scroll4, setScroll4] = useState(true);
+
   return (
     <Main>
       <Section id="home">
         <Container row_4>
-          <Scroll>01</Scroll>
-          <Scroll medium>02</Scroll>
-          <Scroll medium>03</Scroll>
-          <Scroll medium>04</Scroll>
+          <Scroll
+            href="#home"
+            onClick={e => {
+              setScroll1(!scroll1);
+              setScroll2(!scroll2);
+              setScroll3(scroll3 === true);
+              setScroll4(scroll4 === true);
+            }}
+            medium={scroll1 ? true : false}
+            hidden={scroll1 ? true : false}
+          >
+            01
+          </Scroll>
+          <Scroll
+            href="#about"
+            medium={scroll2 ? true : false}
+            hidden={scroll2 ? true : false}
+            onClick={e => {
+              setScroll1(scroll1 === true);
+              setScroll2(scroll2 === false);
+              setScroll3(scroll3 === true);
+              setScroll4(scroll4 === true);
+            }}
+          >
+            02
+          </Scroll>
+          <Scroll
+            medium={scroll3 ? true : false}
+            hidden={scroll3 ? true : false}
+            onClick={e => {
+              setScroll1(!scroll1);
+              setScroll2(!scroll2);
+              setScroll3(!scroll3);
+              setScroll4(!scroll4);
+            }}
+          >
+            03
+          </Scroll>
+          <Scroll
+            medium={scroll4 ? true : false}
+            hidden={scroll4 ? true : false}
+            onClick={e => {
+              setScroll1(!scroll1);
+              setScroll2(!scroll2);
+              setScroll3(!scroll3);
+              setScroll4(!scroll4);
+            }}
+          >
+            04
+          </Scroll>
         </Container>
         <Container>
           <Title>HOLA, YO SOY TU NUEVO ENTRENADOR PERSONAL</Title>
@@ -273,11 +349,8 @@ export function Home() {
         </Container>
       </Section>
       <Section medium id="about">
-        <Container about col_2>
-          <About01></About01>
-          <About02></About02>
-          <About03></About03>
-          <About04></About04>
+        <Container col_2 about="true">
+          <About></About>
         </Container>
       </Section>
       <Section small>
@@ -448,8 +521,9 @@ export function Home() {
             cerca de cumplir tu sueño
           </SubTitle>
         </Container>
+        <ContactForm />
         <Container col_7>
-          <Image src={`${img3}`} />
+          <Image href="https://www.instagram.com" />
           <Image />
           <Image />
           <Image />
