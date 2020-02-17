@@ -13,6 +13,9 @@ export const Wrapper = styled.section`
   text-align: center;
   background-color: ${props => props.theme.colors.dark};
   height: 5rem;
+  @media (max-width: ${props => props.theme.breackpoints.xl}) {
+    display: none;
+  }
 `;
 export const NavbarItem = styled.li`
   font-size: ${props => props.theme.fonts.size_xs};

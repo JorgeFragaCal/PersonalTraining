@@ -21,7 +21,7 @@ export function About() {
               vel eleifend velit. Quisque non fringilla augue. Vivamus et ornare
               quam, id ullamcorper nisi.
             </Text>
-            <Container col_4>
+            <Container col_4_bar>
               <BottonScroll /> <BottonScroll medium /> <BottonScroll medium />
               <BottonScroll medium />
             </Container>
@@ -52,7 +52,7 @@ export function About() {
               vel eleifend velit. Quisque non fringilla augue. Vivamus et ornare
               quam, id ullamcorper nisi.
             </Text>
-            <Container col_4>
+            <Container col_4_bar>
               <BottonScroll /> <BottonScroll /> <BottonScroll medium />
               <BottonScroll medium />
             </Container>
@@ -83,7 +83,7 @@ export function About() {
               vel eleifend velit. Quisque non fringilla augue. Vivamus et ornare
               quam, id ullamcorper nisi.
             </Text>
-            <Container col_4>
+            <Container col_4_bar>
               <BottonScroll /> <BottonScroll /> <BottonScroll />
               <BottonScroll medium />
             </Container>
@@ -114,7 +114,7 @@ export function About() {
               vel eleifend velit. Quisque non fringilla augue. Vivamus et ornare
               quam, id ullamcorper nisi.
             </Text>
-            <Container col_4>
+            <Container col_4_bar>
               <BottonScroll />
               <BottonScroll />
               <BottonScroll />

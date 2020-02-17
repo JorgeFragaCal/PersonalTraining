@@ -17,6 +17,7 @@ export const Main = styled.main`
   background-attachment: fixed;
 `;
 export const Section = styled.section`
+
   height: 100vh;
   display: flex;
   align-items: center;
@@ -25,6 +26,9 @@ export const Section = styled.section`
     css`
       height: 90vh;
       background: ${props => props.theme.colors.dark};
+      @media (max-width: ${props => props.theme.breackpoints.xl}) {
+        height: initial;
+      }
     `}
     ${props =>
       props.contact &&
@@ -35,26 +39,43 @@ export const Section = styled.section`
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
         justify-content: center;
+        @media (max-width: ${props => props.theme.breackpoints.xl}) {
+          height: initial;
+          grid-template-rows: 1fr;
+        }
       `}
   ${props =>
     props.medium &&
     css`
       background-image: linear-gradient(90deg, #0e0f11, #0a0b0d);
       height: 70vh;
+      @media (max-width: ${props => props.theme.breackpoints.xl}) {
+        height: auto;
+      }
     `}
   ${props =>
     props.small &&
     css`
       height: 30vh;
       background: ${props => props.theme.colors.dark};
+      @media (max-width: ${props => props.theme.breackpoints.lg}) {
+        height: auto;
+      }
     `}
 `;
 export const Container = styled.section`
   color: ${props => props.theme.colors.light};
-  width: 100%;
+  padding:0 1rem;
   max-width: 75rem;
-  margin: 0 auto;
-
+  margin: 1rem auto;
+  @media (min-width: ${props => props.theme.breackpoints.xl}) {
+    
+      }
+  ${props =>
+    props.contain_100 &&
+    css`
+      width: 90%;
+    `}
   ${props =>
     props.contain &&
     css`
@@ -63,9 +84,9 @@ export const Container = styled.section`
   ${props =>
     props.about &&
     css`
-      height: 100%;
+      height: 70vh;
       background: url(${img2});
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
       align-items: center;
     `}
@@ -75,7 +96,7 @@ export const Container = styled.section`
         height: 60vh;
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
           url(${img3});
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         align-items: center;
@@ -88,6 +109,9 @@ export const Container = styled.section`
     css`
       display: grid;
       grid-template-columns: 1fr 1fr;
+      @media (max-width: ${props => props.theme.breackpoints.xl}) {
+        grid-template-columns: 1fr;
+      }
     `};
   ${props =>
     props.col_2_auto &&
@@ -95,6 +119,9 @@ export const Container = styled.section`
       display: grid;
       grid-template-columns: auto auto;
       margin-bottom: 1rem;
+      @media (max-width: ${props => props.theme.breackpoints.xl}) {
+        width: initial;
+      }
     `};
   ${props =>
     props.col_3 &&
@@ -102,7 +129,11 @@ export const Container = styled.section`
       display: grid;
       grid-template-columns: auto auto auto;
       max-width: 1000px;
-      margin-bottom: 5rem;
+      grid-row-gap: 5rem;
+
+      @media (max-width: ${props => props.theme.breackpoints.lg}) {
+        grid-template-columns: 1fr;
+      }
     `};
   
   ${props =>
@@ -110,13 +141,35 @@ export const Container = styled.section`
     css`
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1rem;
+      @media (max-width: ${props => props.theme.breackpoints.lg}) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: ${props => props.theme.breackpoints.sm}) {
+        grid-template-columns: 1fr;
+      }
     `};
+    ${props =>
+      props.col_4_bar &&
+      css`
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      `};
     ${props =>
       props.col_7 &&
       css`
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         max-width: inherit;
+        @media (max-width: ${props => props.theme.breackpoints.xl}) {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (max-width: ${props => props.theme.breackpoints.lg}) {
+          grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: ${props => props.theme.breackpoints.sm}) {
+          grid-template-columns: 1fr;
+        }
       `};
   ${props =>
     props.row_4 &&
@@ -125,11 +178,17 @@ export const Container = styled.section`
       top: 40%;
       left: 50px;
       width: 50px;
+      @media (max-width: ${props => props.theme.breackpoints.xl}) {
+        display: none;
+      }
     `};
   ${props =>
     props.text_right &&
     css`
       grid-column: 3/2;
+      @media (max-width: ${props => props.theme.breackpoints.xl}) {
+        grid-column: 1/1;
+      }
     `};
   ${props =>
     props.hidden &&
@@ -339,7 +398,7 @@ export function Home() {
             04
           </Scroll>
         </Container>
-        <Container>
+        <Container contain_100>
           <Title>HOLA, YO SOY TU NUEVO ENTRENADOR PERSONAL</Title>
           <Text>
             Finalmente es el momento de convertirte en la persona que puedes
@@ -349,7 +408,7 @@ export function Home() {
         </Container>
       </Section>
       <Section medium id="about">
-        <Container col_2 about="true">
+        <Container col_2 contain_100 about="true">
           <About></About>
         </Container>
       </Section>
@@ -382,9 +441,9 @@ export function Home() {
             ayudaran a verte mejor y sentirte más seguro
           </SubTitle>
           <Container col_4>
-            <Button mr>PERDER GRASA</Button>
-            <Button mr>GANAR MÚSCULO</Button>
-            <Button mr>NUTRICIÓN</Button>
+            <Button>PERDER GRASA</Button>
+            <Button>GANAR MÚSCULO</Button>
+            <Button>NUTRICIÓN</Button>
             <Button>ENTRENAMIENTO HIT</Button>
           </Container>
           <Container expertise>

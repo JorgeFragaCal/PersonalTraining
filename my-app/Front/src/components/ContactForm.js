@@ -43,26 +43,22 @@ export const InputText = styled.input`
 
 export function ContactForm() {
   return (
-    <Container>
-      <Container col_3>
-        <InputText ligth placeholder="INGRESA TU CORREO"></InputText>
-        <InputText orange placeholder="INGRESA TU NOMBRE"></InputText>
-        <Button orange>CONSULTA GRATUITA</Button>
-      </Container>
-      <Container col_3>
-        <ContactInfo>
-          <i className="fas fa-envelope fa-2x"></i>
-          <p>contacto@email.com</p>
-        </ContactInfo>
-        <ContactInfo>
-          <i className="fas fa-phone fa-2x"></i>
-          <p>612 345 678</p>
-        </ContactInfo>
-        <ContactInfo>
-          <i className="fas fa-map-marked-alt fa-2x"></i>
-          <p>C/ Inventada 45 3</p>
-        </ContactInfo>
-      </Container>
+    <Container col_3 contain_100>
+      <InputText ligth placeholder="INGRESA TU CORREO"></InputText>
+      <InputText orange placeholder="INGRESA TU NOMBRE"></InputText>
+      <Button orange>CONSULTA GRATUITA</Button>
+      <ContactInfo>
+        <i className="fas fa-envelope fa-2x"></i>
+        <p>contacto@email.com</p>
+      </ContactInfo>
+      <ContactInfo>
+        <i className="fas fa-phone fa-2x"></i>
+        <p>612 345 678</p>
+      </ContactInfo>
+      <ContactInfo>
+        <i className="fas fa-map-marked-alt fa-2x"></i>
+        <p>C/ Inventada 45 3</p>
+      </ContactInfo>
     </Container>
   );
 }
