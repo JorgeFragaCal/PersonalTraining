@@ -43,7 +43,7 @@ export const InputText = styled.input`
 
 export function ContactForm() {
   return (
-    <Container col_3 contain_100>
+    <Container col_3 contain_100 row_gap>
       <InputText ligth placeholder="INGRESA TU CORREO"></InputText>
       <InputText orange placeholder="INGRESA TU NOMBRE"></InputText>
       <Button orange>CONSULTA GRATUITA</Button>

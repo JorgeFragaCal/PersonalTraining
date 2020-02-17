@@ -84,7 +84,8 @@ export const Container = styled.section`
   ${props =>
     props.about &&
     css`
-      height: 70vh;
+      height: 100%;
+      min-height: 70vh;
       background: url(${img2});
       background-size: cover;
       background-repeat: no-repeat;
@@ -129,12 +130,16 @@ export const Container = styled.section`
       display: grid;
       grid-template-columns: auto auto auto;
       max-width: 1000px;
-      grid-row-gap: 5rem;
 
       @media (max-width: ${props => props.theme.breackpoints.lg}) {
         grid-template-columns: 1fr;
       }
     `};
+    ${props =>
+      props.row_gap &&
+      css`
+        grid-row-gap: 4rem;
+      `};
   
   ${props =>
     props.col_4 &&
@@ -201,6 +206,12 @@ export const Title = styled.h1`
   font-size: ${props => props.theme.fonts.size_xxl};
   font-family: ${props => props.theme.fonts.primary};
   max-width: 40rem;
+  @media (max-width: ${props => props.theme.breackpoints.sm}) {
+    font-size: 4rem;
+  }
+  @media (max-width: ${props => props.theme.breackpoints.xs}) {
+    font-size: 3.5rem;
+  }
 `;
 export const Title2 = styled.h2`
   font-size: ${props => props.theme.fonts.size_xl};
