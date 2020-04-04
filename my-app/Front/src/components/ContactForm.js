@@ -18,7 +18,7 @@ export const InputText = styled.input`
   border: none;
   margin-right: 2rem;
   text-indent: 0.5rem;
-
+  outline: none;
   ${props =>
     props.orange &&
     css`

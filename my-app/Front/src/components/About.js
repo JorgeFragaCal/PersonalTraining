@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import { Container, Title2, Number, Text, BottonScroll } from "../pages/Home";
+import {
+  Container,
+  Title2,
+  Number,
+  Arrow,
+  Text,
+  BottonScroll
+} from "../pages/Home";
 export function About() {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(true);
   const [open3, setOpen3] = useState(true);
   const [open4, setOpen4] = useState(true);
   return (
-    <React.Fragment>
+    <div>
+      <Title2>PERO PRIMERO, CONOCEME</Title2>
       <Container text_right hidden={open1 ? true : false}>
-        <Title2>PERO PRIMERO, CONOCEME</Title2>
         <Container col_3>
           <Number mr>01</Number>
           <div>
@@ -26,8 +33,7 @@ export function About() {
               <BottonScroll medium />
             </Container>
           </div>
-          <Number
-            as="button"
+          <Arrow
             ml
             onClick={e => {
               setOpen2(!open2);
@@ -35,29 +41,28 @@ export function About() {
             }}
           >
             >
-          </Number>
+          </Arrow>
         </Container>
       </Container>
       <Container text_right hidden={open2 ? true : false}>
-        <Title2>Titulo 2</Title2>
         <Container col_3>
           <Number mr>02</Number>
           <div>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              suscipit nec risus ut varius. Ut eu dolor a dui mattis mattis at
-              iaculis purus. Aliquam erat volutpat. Suspendisse bibendum congue
-              sapien, ut tempor lorem blandit scelerisque. Proin quis nisi
-              sapien. Nam hendrerit varius aliquam. Maecenas eu fermentum felis,
-              vel eleifend velit. Quisque non fringilla augue. Vivamus et ornare
-              quam, id ullamcorper nisi.
+              Praesent a pellentesque metus, vel molestie urna. Class aptent
+              taciti sociosqu ad litora torquent per conubia nostra, per
+              inceptos himenaeos. Proin et arcu quis enim rutrum sollicitudin.
+              Aliquam scelerisque mauris id tellus molestie efficitur eu vitae
+              sapien. Etiam dapibus purus in commodo sodales. Aenean imperdiet
+              odio et nunc blandit, eu tempus elit scelerisque. Curabitur
+              aliquet volutpat est, quis aliquam lacus consequat vel. Sed a ante
             </Text>
             <Container col_4_bar>
               <BottonScroll /> <BottonScroll /> <BottonScroll medium />
               <BottonScroll medium />
             </Container>
           </div>
-          <Number
+          <Arrow
             as="button"
             ml
             onClick={e => {
@@ -66,29 +71,28 @@ export function About() {
             }}
           >
             >
-          </Number>
+          </Arrow>
         </Container>
       </Container>
       <Container text_right hidden={open3 ? true : false}>
-        <Title2>Titulo 3</Title2>
         <Container col_3>
           <Number mr>03</Number>
           <div>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              suscipit nec risus ut varius. Ut eu dolor a dui mattis mattis at
-              iaculis purus. Aliquam erat volutpat. Suspendisse bibendum congue
-              sapien, ut tempor lorem blandit scelerisque. Proin quis nisi
-              sapien. Nam hendrerit varius aliquam. Maecenas eu fermentum felis,
-              vel eleifend velit. Quisque non fringilla augue. Vivamus et ornare
-              quam, id ullamcorper nisi.
+              Curabitur eget varius lectus, ut laoreet sem. Cras accumsan diam
+              sed tortor ornare, in ultricies mauris accumsan. Pellentesque
+              laoreet eget urna at bibendum. Nunc dapibus libero ut quam
+              dignissim pharetra. Suspendisse enim lectus, suscipit quis mauris
+              a, consequat hendrerit sapien. Aliquam ornare, dolor sed pulvinar
+              vehicula, velit justo vulputate nunc, ac pellentesque tellus
+              libero ac nulla. Ut cursus tincidunt magna, vel iaculis odio
             </Text>
             <Container col_4_bar>
               <BottonScroll /> <BottonScroll /> <BottonScroll />
               <BottonScroll medium />
             </Container>
           </div>
-          <Number
+          <Arrow
             as="button"
             ml
             onClick={e => {
@@ -97,22 +101,20 @@ export function About() {
             }}
           >
             >
-          </Number>
+          </Arrow>
         </Container>
       </Container>
       <Container text_right hidden={open4 ? true : false}>
-        <Title2>Titulo 4</Title2>
         <Container col_3>
           <Number mr>04</Number>
           <div>
             <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              suscipit nec risus ut varius. Ut eu dolor a dui mattis mattis at
-              iaculis purus. Aliquam erat volutpat. Suspendisse bibendum congue
-              sapien, ut tempor lorem blandit scelerisque. Proin quis nisi
-              sapien. Nam hendrerit varius aliquam. Maecenas eu fermentum felis,
-              vel eleifend velit. Quisque non fringilla augue. Vivamus et ornare
-              quam, id ullamcorper nisi.
+              Proin at justo elementum, placerat quam eget, accumsan nulla.
+              Aliquam sed dapibus ante. Etiam eget neque nulla. Donec iaculis
+              tortor in sem maximus eleifend. Aenean hendrerit vestibulum leo,
+              non feugiat neque molestie id. Donec imperdiet tortor neque, sed
+              mattis nibh ullamcorper id. Interdum et malesuada fames ac ante
+              ipsum primis in faucibus.
             </Text>
             <Container col_4_bar>
               <BottonScroll />
@@ -121,7 +123,7 @@ export function About() {
               <BottonScroll />
             </Container>
           </div>
-          <Number
+          <Arrow
             as="button"
             ml
             onClick={e => {
@@ -130,9 +132,9 @@ export function About() {
             }}
           >
             >
-          </Number>
+          </Arrow>
         </Container>
       </Container>
-    </React.Fragment>
+    </div>
   );
 }

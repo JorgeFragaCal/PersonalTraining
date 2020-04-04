@@ -6,6 +6,7 @@ export const Button = styled.button`
   border: solid 1px;
   border-color: ${props => props.theme.colors.primary};
   border-radius: 0.7rem;
+  outline: none;
   &:hover {
     background-color: ${props => props.theme.colors.secondary};
     box-shadow: 0 0 30px ${props => props.theme.colors.primary};

@@ -257,19 +257,17 @@ export const Number = styled.div`
   font-size: ${props => props.theme.fonts.size_xl};
   font-family: ${props => props.theme.fonts.primary};
   color: ${props => props.theme.colors.primary};
+  width: 60px;
+`;
+export const Arrow = styled.button`
+  font-size: ${props => props.theme.fonts.size_xl};
+  font-family: ${props => props.theme.fonts.primary};
+  color: ${props => props.theme.colors.primary};
   background: transparent;
   border: none;
+  outline: none;
   display: inline-block;
-  ${props =>
-    props.mr &&
-    css`
-      margin-right: 1rem;
-    `};
-  ${props =>
-    props.ml &&
-    css`
-      margin-left: 1rem;
-    `};
+  min-width: 45px;
 `;
 export const BottonScroll = styled.div`
   border-bottom: solid 5px ${props => props.theme.colors.primary};
@@ -288,8 +286,13 @@ export const Scroll = styled.a`
   display: flex;
   align-items: center;
   padding-left: 1rem;
+  text-decoration: none;
   color: ${props => props.theme.colors.primary};
   font-family: ${props => props.theme.fonts.primary};
+  &:hover {
+    color: ${props => props.theme.colors.primary};
+    transition: 0.7s;
+  }
   ${props =>
     props.medium &&
     css`
@@ -360,14 +363,16 @@ export function Home() {
         <Container row_4>
           <Scroll
             href="#home"
-            onClick={e => {
-              setScroll1(!scroll1);
-              setScroll2(!scroll2);
-              setScroll3(scroll3 === true);
-              setScroll4(scroll4 === true);
-            }}
             medium={scroll1 ? true : false}
             hidden={scroll1 ? true : false}
+            onClick={e => {
+              if (scroll1 !== false) {
+                setScroll1(scroll1 === false);
+                setScroll2(scroll1 === true);
+                setScroll3(scroll1 === true);
+                setScroll4(scroll1 === true);
+              }
+            }}
           >
             01
           </Scroll>
@@ -376,34 +381,42 @@ export function Home() {
             medium={scroll2 ? true : false}
             hidden={scroll2 ? true : false}
             onClick={e => {
-              setScroll1(scroll1 === true);
-              setScroll2(scroll2 === false);
-              setScroll3(scroll3 === true);
-              setScroll4(scroll4 === true);
+              if (scroll2 !== false) {
+                setScroll1(scroll2 === true);
+                setScroll2(scroll2 === false);
+                setScroll3(scroll2 === true);
+                setScroll4(scroll2 === true);
+              }
             }}
           >
             02
           </Scroll>
           <Scroll
+            href="#expertise"
             medium={scroll3 ? true : false}
             hidden={scroll3 ? true : false}
             onClick={e => {
-              setScroll1(!scroll1);
-              setScroll2(!scroll2);
-              setScroll3(!scroll3);
-              setScroll4(!scroll4);
+              if (scroll3 !== false) {
+                setScroll1(scroll3 === true);
+                setScroll2(scroll3 === true);
+                setScroll3(scroll3 === false);
+                setScroll4(scroll3 === true);
+              }
             }}
           >
             03
           </Scroll>
           <Scroll
+            href="#benefits"
             medium={scroll4 ? true : false}
             hidden={scroll4 ? true : false}
             onClick={e => {
-              setScroll1(!scroll1);
-              setScroll2(!scroll2);
-              setScroll3(!scroll3);
-              setScroll4(!scroll4);
+              if (scroll4 !== false) {
+                setScroll1(scroll4 === true);
+                setScroll2(scroll4 === true);
+                setScroll3(scroll4 === true);
+                setScroll4(scroll4 === false);
+              }
             }}
           >
             04
@@ -420,6 +433,7 @@ export function Home() {
       </Section>
       <Section medium id="about">
         <Container col_2 contain_100 about="true">
+          <div></div>
           <About></About>
         </Container>
       </Section>
